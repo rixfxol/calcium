@@ -34,3 +34,7 @@
 # IDE-specific directories
 .vscode/
 .vs/
+
+# Build directories
+bin/
+build/
