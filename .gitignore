@@ -38,3 +38,5 @@
 # Build directories
 bin/
 build/
+debug/
+release/
