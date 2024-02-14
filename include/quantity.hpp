@@ -15,6 +15,12 @@ namespace calcium::cli
 {
     class quantity
     {
+        enum class quantity_type
+        {
+            is_number,
+            is_number_constant,
+            
+        };
         
         
     };

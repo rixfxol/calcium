@@ -9,11 +9,13 @@ project(calcium VERSION 0.0.1
 file(GLOB DEFAULT_SOURCE_HEADERS_DIRECTORIES include)
 file(GLOB DEFAULT_SOURCE_HEADERS
           include/*.hpp
-          include/var/*.hpp)
+          include/var/*.hpp
+          include/calcium/*.hpp)
 
 # # Calcium CLI
 file(GLOB DEFAULT_SOURCE_CLI
-            src/cli/*.cpp
+            
+src/cli/*.cpp
             src/cli/modules/*.cpp)
 add_executable(calcium_cli ${DEFAULT_SOURCE_CLI} ${DEFAULT_SOURCE_HEADERS})
 target_include_directories(calcium_cli PUBLIC ${DEFAULT_SOURCE_HEADERS_DIRECTORIES})
