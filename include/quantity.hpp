@@ -2,7 +2,6 @@
  * @file quantity.hpp
  * @author rixfxol (jf_espiritu.fa@outlook.ph)
  * @brief The declaration file for the quantity class.
- * @version 0.1
  * 
  * This file contains the declaration for 'quantity'. A
  * 'quantity' is any possible representation of a number,
@@ -12,7 +11,7 @@
 #ifndef INCLUDE_QUANTITY_HPP
 #define INCLUDE_QUANTITY_HPP
 
-namespace calcium
+namespace calcium::cli
 {
     class quantity
     {
