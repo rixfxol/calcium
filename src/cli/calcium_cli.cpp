@@ -1,12 +1,12 @@
 //Standard Library
-#include <iostream>
-#include <sstream>
+#include <iostream>zz
 
 #include <string>
 
 //Source Includes
-#include "quantity.hpp"
-#include "translator.hpp"
+#include "calcium/calcium.hpp"
+#include "calcium/quantity.hpp"
+#include "calcium/core/translator.hpp"
 
 int main(int arg_total, char** arg_list)
 {

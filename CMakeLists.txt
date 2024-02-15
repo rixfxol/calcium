@@ -10,11 +10,13 @@ enable_testing()
 file(GLOB DEFAULT_SOURCE_HEADERS_DIRECTORIES include)
 file(GLOB DEFAULT_SOURCE_HEADERS
           include/*.hpp
-          include/calcium/var/*.hpp
-          include/calcium/methods/*.hpp)
+          include/calcium/*.hpp
+          include/calcium/core/*.hpp
+          include/calcium/global/*.hpp)
 
 # # Calcium CLI
 file(GLOB DEFAULT_SOURCE_CLI
+            src/components/*.cpp
             src/cli/*.cpp
             src/cli/modules/*.cpp)
 add_executable(calcium_cli ${DEFAULT_SOURCE_CLI} ${DEFAULT_SOURCE_HEADERS})
