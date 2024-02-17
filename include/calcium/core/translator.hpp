@@ -9,7 +9,7 @@
 #ifndef INCLUDE_TRANSLATOR_HPP
 #define INCLUDE_TRANSLATOR_HPP
 
-namespace calcium::cli
+namespace calcium
 {
     class translator
     {

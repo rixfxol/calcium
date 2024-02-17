@@ -18,7 +18,9 @@ file(GLOB DEFAULT_SOURCE_HEADERS
 file(GLOB DEFAULT_SOURCE_CLI
             src/components/*.cpp
             src/cli/*.cpp
-            src/cli/modules/*.cpp)
+            src/cli/modules/*.cpp
+            src/cli/modules/evaluator/*.cpp
+            src/cli/modules/translator/*.cpp)
 add_executable(calcium_cli ${DEFAULT_SOURCE_CLI} ${DEFAULT_SOURCE_HEADERS})
 target_include_directories(calcium_cli PUBLIC ${DEFAULT_SOURCE_HEADERS_DIRECTORIES})
 target_compile_features(calcium_cli PRIVATE cxx_std_20)

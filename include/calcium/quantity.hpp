@@ -20,7 +20,7 @@
 //Source Includes
 #include "calcium/core/translator.hpp"
 
-namespace calcium::cli
+namespace calcium
 {
     /**
      * @brief Enumeration for Quantity Type
@@ -91,8 +91,6 @@ namespace calcium::cli
         std::string quantity_value;
         std::vector<quantity*> child_nodes;
         
-        //Friend Classes
-        friend calcium::cli::translator;
 
         //Private Methods
 
@@ -103,17 +101,40 @@ namespace calcium::cli
         bool clean();
 
         public:
-            //Constructor
+            //Structors
             quantity();
-
-            //Destructor
             ~quantity();
             
+            //Iterators
+            class preorder_iterator 
+            {
+
+            };
+
+            class inorder_iterator 
+            {
+
+            };
+
+            class postorder_iterator
+            {
+
+            };
+
+            class ascending_iterator
+            {
+
+            };
+            
+            class descending_iterator
+            {
+                
+            };
+
             //Accessor Methods
             
   
     };
 };
-
 
 #endif
