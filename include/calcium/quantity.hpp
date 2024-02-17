@@ -106,26 +106,11 @@ namespace calcium
             ~quantity();
             
             //Iterators
-            class preorder_iterator 
-            {
-
-            };
-
-            class inorder_iterator 
-            {
-
-            };
-
-            class postorder_iterator
-            {
-
-            };
-
             class ascending_iterator
             {
-
+                
             };
-            
+
             class descending_iterator
             {
                 
