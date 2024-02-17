@@ -14,7 +14,7 @@
 #define INCLUDE_QUANTITY_HPP
 
 //Standard Library
-#include <queue>
+#include <vector>
 #include <string>
 
 //Source Includes
@@ -23,25 +23,40 @@
 namespace calcium::cli
 {
     /**
-     * @brief Enumeration for Quantity Type.
+     * @brief Enumeration for Quantity Type
      * 
-     * The quantity_type enumeration defines the available
-     * methods which declare the relationship of the child
-     * quantity to the parent quantity.  
+     * The quantity_type enumeration defines the
+     * type in which to consider the quantity as.
      */
     enum class quantity_type
     {
-        //Container Types
-        is_empty_or_head,                       //Container Quantity
-        is_function_of,                         //Function Definition Quantity
+        //Default Types
+        is_number,
+        is_number_constant,
+        is_variable,
+
+        //Container Type
+        is_container,
+        is_function
+    };
+    
+    /**
+     * @brief Enumeration for Quantity Relationship.
+     * 
+     * The quantity_relationship enumeration defines the available
+     * methods which declare the relationship of the child
+     * quantity to the parent quantity. Check the documentation
+     * to see which operations are already implemented.
+     */
+    enum class quantity_relationship
+    {
+        //Container Relationship (Head Node)
+        is_head,                                //Primary Container Quantity
      
-        //Numerical (Definition) Types
-        is_number,                              //Definite Numerical Quantity
-        is_number_constant,                     //Defined Constant Quantity 
-        is_variable,                            //Representative Numerical Quantity
+        //Attachment Quantities
         is_unit_of,
 
-        //Basic Operator Types
+        //Basic Operators
         is_addend_to,
         is_subtrahend_to,
         is_multiplicand_to,
@@ -50,11 +65,11 @@ namespace calcium::cli
         is_nthpower,
         is_nthlogarithm,
 
-        //Intermediate Operator Types
+        //Intermediate Operators
         is_derivative_of,
         is_antiderivative_of,
 
-        //Advanced Operator Types
+        //Advanced Operators
         is_laplace_transform_of,
         is_inverse_laplace_transform_of,
     };
@@ -62,18 +77,29 @@ namespace calcium::cli
     /**
      * @brief Quantity class.
      * 
+     * The quantity class is a heap-like structure which encapsulates
+     * an entire mathematical statement or expression. This class is used
+     * to easily evaluate the underlying parenthetically enclosed quantities.
      */
     class quantity
     {
         //Member Variables
-        std::queue<quantity*> child_quantities;
-        quantity_type type;
-        std::wstring quantity_value;
+        quantity* parent_node;
+        quantity_type node_type;
+        quantity_relationship node_rel_to_parent;
+        
+        std::string quantity_value;
+        std::vector<quantity*> child_nodes;
         
         //Friend Classes
         friend calcium::cli::translator;
 
         //Private Methods
+
+        /**
+         * @brief 
+         * 
+         */
         bool clean();
 
         public:
@@ -84,7 +110,7 @@ namespace calcium::cli
             ~quantity();
             
             //Accessor Methods
-
+            
   
     };
 };
