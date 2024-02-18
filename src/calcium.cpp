@@ -10,6 +10,8 @@
 
 int main(int arg_total, char** arg_list)
 {
+    //File Declarations
+    
     //Check if Argument List is Empty
     if (arg_total <= 1) return 0;
     

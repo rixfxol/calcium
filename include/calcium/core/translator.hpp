@@ -14,14 +14,16 @@
 //Source Includes
 #include "calcium/quantity.hpp"
 
-#ifndef INCLUDE_TRANSLATOR_HPP
-#define INCLUDE_TRANSLATOR_HPP
+#ifndef INCLUDE_CALCIUM_CORE_TRANSLATOR_HPP
+#define INCLUDE_CALCIUM_CORE_TRANSLATOR_HPP
 
 namespace calcium
 {
     /**
      * @brief The Translator Base Class/Interface.
      *  
+     * The translator class is an abstract class that is
+     * provided as a base class for other translator types, 
      */
     class translator
     {
@@ -40,7 +42,7 @@ namespace calcium
     
     //Conversion Types
     class prefix_converter : public translator {};
-    class postfix_converter : public translatorr {};
+    class postfix_converter : public translator {};
 };
 
 #endif

@@ -3,15 +3,15 @@
  * @author rixfxol (jf_espiritu.fa@outlook.ph)
  * @brief The declaration file for the quantity class.
  * 
- * This file contains the declaration for 'quantity'. A
- * 'quantity' is any possible representation of a number,
+ * This file contains the declaration for @ref quantity. A
+ * @ref quantity is any possible representation of a number,
  * statement, variable, parenthetically-enclosed phrase, or
  * function. It is basically a container that may contain
  * containers or just a single value. 
  */
 
-#ifndef INCLUDE_QUANTITY_HPP
-#define INCLUDE_QUANTITY_HPP
+#ifndef INCLUDE_CALCIUM_QUANTITY_HPP
+#define INCLUDE_CALCIUM_QUANTITY_HPP
 
 //Standard Library
 #include <vector>
@@ -94,9 +94,6 @@ namespace calcium
         
         std::string value;
         std::vector<quantity*> child_nodes;
-
-        //Accessor Class   
-        class accessor;
         
         //Private Methods
 
@@ -116,6 +113,9 @@ namespace calcium
             //Iterators
             class ascending_iterator;            
             class descending_iterator;  
+
+            //Accessor Class   
+            class accessor;
 
     };
     
@@ -164,6 +164,12 @@ namespace calcium
      */
     class quantity::accessor
     {
+        /**
+         * @brief The selection for quantity variables.
+         * 
+         * This enumeration allow to select what @ref quantity
+         * variable the friend classes are allowed to access.
+         */
         enum class quantity_data
         {
             node_parent,
@@ -181,7 +187,8 @@ namespace calcium
 
         public:
             //Member Functions
-            static auto iomod(quantity_data);
+            static auto io_data(quantity_data);
+            static bool io_data(quantity_data, auto data);
     };
 
 
