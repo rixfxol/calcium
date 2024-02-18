@@ -23,7 +23,7 @@
 namespace calcium
 {
     /**
-     * @brief Enumeration for Quantity Type
+     * @brief Enumeration for @ref quantity type
      * 
      * The quantity_type enumeration defines the
      * type in which to consider the quantity as.
@@ -41,7 +41,7 @@ namespace calcium
     };
     
     /**
-     * @brief Enumeration for Quantity Relationship.
+     * @brief Enumeration for @ref quantity relationship.
      * 
      * The quantity_relationship enumeration defines the available
      * methods which declare the relationship of the child
@@ -52,6 +52,8 @@ namespace calcium
     {
         //Container Relationship (Head Node)
         is_head,                                //Primary Container Quantity
+        is_row_of,
+        is_cell_of,
      
         //Attachment Quantities
         is_unit_of,
@@ -66,12 +68,14 @@ namespace calcium
         is_nthlogarithm,
 
         //Intermediate Operators
-        is_derivative_of,
-        is_antiderivative_of,
+        is_nthderivative_of,
+        is_nthantiderivative_of,
 
         //Advanced Operators
         is_laplace_transform_of,
         is_inverse_laplace_transform_of,
+
+        //Complex Operators
     };
 
     /**
@@ -85,18 +89,22 @@ namespace calcium
     {
         //Member Variables
         quantity* parent_node;
-        quantity_type node_type;
-        quantity_relationship node_rel_to_parent;
+        quantity_type type;
+        quantity_relationship parent_relationship;
         
-        std::string quantity_value;
+        std::string value;
         std::vector<quantity*> child_nodes;
-        
 
+        //Accessor Class   
+        class accessor;
+        
         //Private Methods
 
         /**
-         * @brief 
+         * @brief This method minimizes the quantity heap structure.
          * 
+         * @return Returns true if successfully cleaned, false if the quantity
+         * heap is already clean, and throws an exception if it fails to clean.
          */
         bool clean();
 
@@ -106,20 +114,77 @@ namespace calcium
             ~quantity();
             
             //Iterators
-            class ascending_iterator
-            {
-                
-            };
+            class ascending_iterator;            
+            class descending_iterator;  
 
-            class descending_iterator
-            {
-                
-            };
-
-            //Accessor Methods
-            
-  
     };
+    
+    /**
+     * @brief The forward-ascending iterator.
+     * 
+     * This is the quantity iterator class which does ascending
+     * breadth-first traversal of the quantity heap structure.
+     */
+    class quantity::ascending_iterator
+    {
+        public:
+            using iterator_category = std::forward_iterator_tag;
+            using value_type = quantity;
+            using difference_type = std::ptrdiff_t;
+            using pointer = quantity*;
+            using reference = quantity&;
+
+                
+    };
+
+    /**
+     * @brief The forward-descending iterator.
+     * 
+     * This is the quantity iterator class which does descending
+     * breadth-first traversal of the quantity heap structure.
+     */
+    class quantity::descending_iterator
+    {
+        public:
+            using iterator_category = std::forward_iterator_tag;
+            using value_type = quantity;
+            using difference_type = std::ptrdiff_t;
+            using pointer = quantity*;
+            using reference = quantity&;
+
+            
+    };
+
+    /**
+     * @brief The private accessor class.
+     * 
+     * This is the accessor class which is the primary interface for
+     * allowing which classes can immediately access the quantity
+     * class' private members.
+     */
+    class quantity::accessor
+    {
+        enum class quantity_data
+        {
+            node_parent,
+            node_type,
+            node_relationship,
+            node_value,
+            node_children,
+        };
+
+        //Friend Class Declaration
+        friend calcium::key_semantic_translator;
+        friend calcium::latex_translator;
+        friend calcium::prefix_converter;
+        friend calcium::postfix_converter;
+
+        public:
+            //Member Functions
+            static auto iomod(quantity_data);
+    };
+
+
 };
 
 #endif
