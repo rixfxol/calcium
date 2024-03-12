@@ -1,7 +1,7 @@
 /**
  * @file symbol.hpp
  * @author rixfxol (jf_espiritu.fa@outlook.ph)
- * @brief The declaration file for the number class.
+ * @brief The definition file for the symbol namespace.
  * 
  * This file contains the declaration for a @ref symbol.
  * A @ref symbol is a representation of a number or variable,
@@ -18,12 +18,6 @@
 
 namespace calcium
 {
-    enum class symbol_type
-    {
-        number,
-        variable
-    };
-
     class symbol
     {
         

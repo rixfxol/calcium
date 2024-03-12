@@ -1,13 +1,11 @@
 /**
  * @file quantity.hpp
  * @author rixfxol (jf_espiritu.fa@outlook.ph)
- * @brief The declaration file for the quantity class.
+ * @brief The declaration file for the quantity concept.
  * 
- * This file contains the declaration for @ref quantity. A
- * @ref quantity is any possible representation of a number,
- * mathematical expression, variable, parenthetically-enclosed 
- * expression, or function. It is basically a container that 
- * may contain other containers or just a single value. 
+ * This file contains the declaration for a @ref quantity. A
+ * @ref quantity is a node for an @ref expression that abstracts
+ * a function operation and a number or variable.
  */
 
 #ifndef INCLUDE_CALCIUM_CORE_QUANTITY_HPP
@@ -18,18 +16,30 @@
 #include <string>
 
 //Source Includes
-#include "calcium/core/symbol.hpp"
+#include "calcium/core/number.hpp"
+#include "calcium/core/concepts.hpp"
 
 namespace calcium
 {
-    enum class quantity_type
+    /**
+     * @brief The @ref quantity namespace.
+     * 
+     * The quantity namespace contains the macros for
+     * the quantity concept.
+     */
+    namespace quantity
     {
         
     };
-
+    
+    /**
+     * @brief The @ref quantity class.
+     * 
+     * The quantity class 
+     */
     class quantity
     {
-
+        
     };
 };
 
