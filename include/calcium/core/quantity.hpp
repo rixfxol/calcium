@@ -22,17 +22,6 @@
 namespace calcium
 {
     /**
-     * @brief The @ref quantity namespace.
-     * 
-     * The quantity namespace contains the macros for
-     * the quantity concept.
-     */
-    namespace quantity
-    {
-        
-    };
-    
-    /**
      * @brief The @ref quantity class.
      * 
      * The quantity class 
